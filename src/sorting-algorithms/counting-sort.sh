@@ -58,9 +58,6 @@ function counting_sort {
 
 function main {
   declare -a unsorted=($@)
-  # declare -a unsorted=(3 2 1)
-  # declare -a unsorted=(3 2 1 6 6)
-  # declare -a unsorted=(3 2 1 6 6 1 4 11 6 -5)
 
   counting_sort unsorted 
 }

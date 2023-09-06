@@ -1,5 +1,5 @@
 setup() {
-  source counting-sort.sh
+  source insertion-sort.sh
 }
 
 @test "Works with (3 2)" {

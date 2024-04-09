@@ -71,6 +71,8 @@ function main {
 
   docker run \
     -it \
+    --rm \
+    --name 'bats' \
     -v "${PWD}/${relpath_path_active}:/code" \
     bats/bats:latest \
     $base_test_file

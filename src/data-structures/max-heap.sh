@@ -14,7 +14,7 @@ right_child() {
 }
 
 swap() {
-  local -n r3_heap=$1 > /dev/null
+  local -n r3_heap=$1 
   local -i index1="$2"
   local -i index2="$3"
   
@@ -24,7 +24,7 @@ swap() {
 }
 
 insert() {
-  local -n r2_heap=$1 > /dev/null
+  local -n r2_heap=$1 
   local -i value="$2"
 
   r2_heap+=($value)
@@ -43,18 +43,40 @@ insert() {
   done
 }
 
-max_heap() {
-  local -a unsorted=("$@")
-  local -a sorted=()
-  local -n r1_heap=sorted
-  
-  for value in ${unsorted[@]}; do
-    insert r1_heap $value
-  done
-
-  echo ${r1_heap[0]}
+peek() {
+  local -n r2_heap=$1
+  local -i value="${r2_heap[0]}"
+  echo $value
 }
 
-function main {
-  max_heap "$@"
+remove() {
+  local -n r2_heap=$1
+  local -i s_old=${#r2_heap[@]}
+  local -i s_new=$(( $s_old - 1 ))
+  local -i i_old=$s_new
+
+  swap r2_heap 0 $i_old
+  unset "r2_heap[$i_old]"
+
+  local -i c=0
+  while [ $c -lt $s_new ]; do
+    local -i l=$(left_child $c)
+    local -i r=$(right_child $c)
+    local -i n=$c
+
+    if [ $l -lt $s_new ] && [ ${r2_heap[$l]} -gt ${r2_heap[$n]} ]; then
+      n=$l
+    fi
+
+    if [ $r -lt $s_new ] && [ ${r2_heap[$r]} -gt ${r2_heap[$n]} ]; then
+      n=$r
+    fi
+
+    if [ $n -eq $c ]; then
+      break;
+    fi
+
+    swap r2_heap $c $n
+    c=$n
+  done
 }

@@ -2,8 +2,6 @@ setup() {
   source bubble-sort.sh
 }
 
-
-
 declare -a PARAMS=(
   '1,0;0,1'
   '2,1,0;0,1,2'

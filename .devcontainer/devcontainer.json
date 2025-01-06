@@ -1,0 +1,19 @@
+{
+  "name": "bash-algo-workshop",
+  "dockerComposeFile": [
+    "../docker/compose.dev.yml", 
+    "compose.devcontainer.yml"
+  ],
+  "workspaceFolder": "/utkusarioglu/bash-algo-workshop",
+  "service": "bash-devcontainer",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "workbench.colorCustomizations": {
+          "activityBar.background": "#154422"
+        }
+      },
+      "extensions": ["jetmartin.bats"]
+    }
+  }
+}

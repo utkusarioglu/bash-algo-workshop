@@ -21,5 +21,5 @@ function bubble_sort {
 }
 
 function main {
-  bubble_sort "$@"  
+  bubble_sort "$@"
 }

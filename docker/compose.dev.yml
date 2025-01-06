@@ -1,0 +1,8 @@
+services:
+  bash-devcontainer:
+    container_name: bash-algo-workshop
+    image: utkusarioglu/ubuntu-devcontainer:2404-test-11
+    volumes:
+      - source: ..
+        target: /utkusarioglu/bash-algo-workshop
+        type: bind

@@ -45,3 +45,11 @@ function merge_sort_recursive {
 
   echo "${sorted[@]}"
 }
+
+function merge_sort_iterative {
+  local input="$1"
+  local unsorted_s="${input//' '/';'}"
+
+  echo "${unsorted_s}"
+  echo $unsorted_s
+}

@@ -1,0 +1,20 @@
+services:
+  bash-devcontainer:
+    stdin_open: true
+    init: true
+    environment:
+      GH_TOKEN: ${GH_TOKEN}
+    volumes:
+      - type: volume
+        source: vscode-extensions
+        target: /home/dev/.vscode-server/extensions
+      - type: volume
+        source: vscode-extensions-insiders
+        target: /home/dev/.vscode-server-insiders/extensions
+  
+volumes:
+  vscode-extensions:
+    name: bash-algo-workshop-vscode-extensions
+  vscode-extensions-insiders:
+    name: bash-algo-workshop-vscode-extensions-insiders
+  
